@@ -9,17 +9,21 @@ export default function ProductCard() {
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8"> 
           {products.map((product) => (
             //updates the list
-            <div key={product.id} className="group relative bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-lg bg-gray-200 lg:aspect-h-8 lg:aspect-w-7">
+            <div key={product.id} className="group relative bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden
+             transform transition-all duration-300 hover:scale-105 hover:shadow-lg
+             flex flex-col">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-lg bg-white lg:aspect-h-8 lg:aspect-w-7 flex items-center justify-center">
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  className="h-full w-full object-contain object-center group-hover:opacity-75"
                   
                   onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x300/cccccc/333333?text=Görsel+Yok'; }}
                 />
               </div>
-              <div className="p-4">
+             
+              {/*Product info*/}
+              <div className="p-4 flex flex-col flex-grow justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">
                   <a href={product.href}>
                     <span aria-hidden="true" className="absolute inset-0" />
@@ -28,10 +32,13 @@ export default function ProductCard() {
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{product.imageAlt}</p>
                 <p className="text-xl font-bold text-gray-900 mt-2">{product.price}</p>
+
+                {/** Favorite button */}
                 <button
                   type="button"
-                  className="mt-4 w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  onClick={() => alert(`${product.name} favorilere eklendi!`)} 
+                  className="mt-4 w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm
+                   hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-auto"
+                  onClick={() => alert(`${product.name} added!`)} 
                 >
                   Add Favorite
                 </button>
