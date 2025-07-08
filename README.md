@@ -12,7 +12,7 @@ This is a simple product listing application built with React, TailwindCSS, Zust
 ## 📸 Preview
 ![home page](./home.jpg)
 ![home page fav button](./favhome.jpg)
-![products page](./product.jpg)
+![products page](./images/product.jpg)
 ![favorite page](./favs.jpg)
 
 ## 🧠 Technologies
