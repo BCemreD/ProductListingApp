@@ -10,10 +10,10 @@ This is a simple product listing application built with React, TailwindCSS, Zust
 - Error handling for image loading
 
 ## 📸 Preview
-![home page](./home.jpg)
-![home page fav button](./favhome.jpg)
-![products page](./images/product.jpg)
-![favorite page](./favs.jpg)
+![home page](./public/images/home.jpg)
+![home page fav button](./public/images/favhome.jpg)
+![products page](./public/images/product.jpg)
+![favorite page](./public/images/favs.jpg)
 
 ## 🧠 Technologies
 - React
