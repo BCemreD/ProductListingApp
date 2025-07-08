@@ -1,12 +1,12 @@
 // navbar.jsx
 import { Disclosure, DisclosureButton, DisclosurePanel, } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link, useLocation } from 'react-router-dom' // <-- BURAYI EKLE!
+import { Link, useLocation } from 'react-router-dom' 
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
-  { name: 'Products', href: '/products', current: false }, // Düzeltildi
-  { name: 'Favorites', href: '/favorites', current: false }, // Düzeltildi
+  { name: 'Products', href: '/products', current: false }, 
+  { name: 'Favorites', href: '/favorites', current: false }, 
 ]
 
 function classNames(...classes) {

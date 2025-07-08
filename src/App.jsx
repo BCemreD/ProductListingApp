@@ -14,12 +14,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className='bg-gray-100 p-4'></main>
+      <main className='bg-gray-100 p-4'>
       <Routes>
-        <Route path = '/' element ={<Home/>}></Route>
-        <Route path = '/products' element ={<ProductCard/>}></Route>
-        <Route path = '/favorites' element ={<Favorites/>}></Route>
-      </Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/products' element={<ProductCard />}></Route>
+          <Route path='/favorites' element={<Favorites />}></Route>
+        </Routes>
+      </main>
     </>
   )
 }
