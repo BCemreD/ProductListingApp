@@ -47,7 +47,7 @@ export default function ProductCard() {
                    ${isProductFavorite ? 'bg-red-500 hover:bg-red-600' : 'bg-indigo-600 hover:bg-indigo-700'}`}
                     onClick={() => {
                       if (isProductFavorite) {
-                        alert(`${product.id} already exists.`);
+                        alert(`${product.name} already exists.`);
                       } else {
                         addFavorite(product);
                       }

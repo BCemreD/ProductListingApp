@@ -31,7 +31,7 @@ export default function Navbar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center gap-8 py-8 justify-start sm:items-stretch">
-            <div className="flex shrink-0 items-center">
+            <div className="flex w-full justify-center sm:justify-start items-center">
 
               {/* Linked logo */}
               <Link to="/">
@@ -41,6 +41,7 @@ export default function Navbar() {
                   className="h-16 w-auto"
                 />
               </Link>
+               <span className="text-sky-500 px-8 text-xl font-bold hidden sm:inline"><Link to="/">BCemreD</Link></span>
             </div>
 
             <div className="hidden sm:ml-auto py-8 sm:block">
