@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
-import ProductCard from './components/ProductCard'
+import ProductCard from './pages/ProductPage'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className='bg-gray-100 p-4'>
+      <main className='bg-[#F4F4F4] p-4'>
       <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/products' element={<ProductCard />}></Route>

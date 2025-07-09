@@ -1,4 +1,8 @@
-export const products = [
+import { create } from 'zustand';
+
+export const useProductStore = create((set) => ({
+  
+  products : [
   {//Placeholders for absent images
     id: 1,
     name: 'Laptop',
@@ -74,4 +78,6 @@ export const products = [
     imageAlt: 'High-power, c-type charger.',
     price: '$49.00',
   },
-];
+],
+
+}));
