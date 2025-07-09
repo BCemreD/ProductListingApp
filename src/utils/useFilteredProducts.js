@@ -1,5 +1,6 @@
 import { useProductStore } from '../store/useProductStore';
 
+{/*Searchbar for filter products */}
 export function useFilteredProducts(searchTerm, category) {
   const products = useProductStore(state => state.products);
 

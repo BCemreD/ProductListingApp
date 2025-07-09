@@ -1,10 +1,10 @@
 import React from 'react';
-import { useFavoriteStore } from '../../store/FavoriteStore';
+import { useFavoriteStore } from '../../store/FavoriteStore'; 
 
-export default function FavoriteButton({ product }) {
+export default function FavoriteButton({ product }) { 
   const addFavorite = useFavoriteStore(state => state.addFavorite);
   const isFavorite = useFavoriteStore(state => state.isFavorite);
-  const isProductFavorite = isFavorite(product.id);
+  const isProductFavorite = isFavorite(product.id); 
 
   return (
     <button

@@ -1,7 +1,8 @@
 import React from 'react';
-import FavoriteButton from './FavoriteButton';
+import FavoriteButton from './FavoriteButton'; 
 
-export default function ProductCard({ product }) {
+/* Small cards that are listed on product page */
+export default function ProductCard({ product }) { 
   return (
     <div className="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
       <div className="aspect-w-1 aspect-h-1 flex items-center justify-center bg-white">
@@ -22,7 +23,8 @@ export default function ProductCard({ product }) {
         <p className="text-xl font-bold text-gray-900 mt-2">{product.price}</p>
       </div>
 
-      <FavoriteButton product={product} />
+      
+      <FavoriteButton product={product} /> 
     </div>
   );
 }

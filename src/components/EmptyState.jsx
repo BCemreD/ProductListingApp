@@ -1,6 +1,7 @@
 import FavoriteCard from '../components/Favorite/FavoriteCard';
 import { useFavoriteStore } from '../store/FavoriteStore';
 
+{/*when favorite page is empty */}
 export default function EmptyState () {
     const favorites = useFavoriteStore(state => state.favorites);
     return (

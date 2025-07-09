@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
-import ProductCard from './pages/ProductPage'
+import ProductPage from './pages/ProductPage'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 
@@ -17,7 +15,7 @@ function App() {
       <main className='bg-[#F4F4F4] p-4'>
       <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/products' element={<ProductCard />}></Route>
+          <Route path='/products' element={<ProductPage />}></Route>
           <Route path='/favorites' element={<Favorites />}></Route>
         </Routes>
       </main>

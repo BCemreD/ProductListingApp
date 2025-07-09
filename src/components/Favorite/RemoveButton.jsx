@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFavoriteStore } from '../../store/FavoriteStore';
 
+{/*Remove from favorite */}
 export default function RemoveButton({ productId }) {
     const removeFavorite = useFavoriteStore(state => state.removeFavorite);
 
