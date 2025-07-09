@@ -35,5 +35,6 @@ This is a simple product listing application built with React, TailwindCSS, Zust
 - List
 
 ## 🔗 Live Demo
+https://product-listing-app-rho.vercel.app/
 
 
