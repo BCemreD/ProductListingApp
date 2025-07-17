@@ -9,7 +9,7 @@ export default function EmptyState () {
      favorites.length === 0 ? (
         <div className="text-center text-gray-500 text-lg border border-dashed border-gray-300 p-8 rounded-lg">
           <img
-          src="/public/images/emptyfavorite.jpg"
+          src="/images/emptyfavorite.jpg"
           alt="empty"
           className="object-contain h-[400px] w-full"
         />
