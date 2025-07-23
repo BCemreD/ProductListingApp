@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import ProductPage from './pages/ProductPage'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,12 +14,13 @@ function App() {
     <>
       <Navbar />
       <main className='bg-[#F4F4F4] p-4'>
-      <Routes>
+        <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/products' element={<ProductPage />}></Route>
           <Route path='/favorites' element={<Favorites />}></Route>
         </Routes>
       </main>
+      <Analytics />
     </>
   )
 }

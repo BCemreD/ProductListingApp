@@ -6,12 +6,11 @@ import { useFavoriteStore } from '../store/FavoriteStore';
 
 {/*Home Page */}
 export default function Home() {
-  // `favorites` dizisini çekmek, bu bileşenin favori durumu değiştiğinde yeniden render olmasını sağlar.
+  // `favorites` 
   const favorites = useFavoriteStore(state => state.favorites);
-  const removeFavorite = useFavoriteStore(state => state.removeFavorite); // Favori sidebar'ı için
+  const removeFavorite = useFavoriteStore(state => state.removeFavorite); // Favori sidebar
 
-  // isFavorite ve addFavorite fonksiyonlarını Home'da çekmeye gerek yok,
-  // çünkü FavoriteButton bunları kendi içinde çekiyor.
+
   const products = useProductStore(state => state.products);
 
   return (
