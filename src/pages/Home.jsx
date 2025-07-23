@@ -6,11 +6,11 @@ import { useFavoriteStore } from '../store/FavoriteStore';
 
 {/*Home Page */}
 export default function Home() {
+
   // `favorites` 
+
   const favorites = useFavoriteStore(state => state.favorites);
   const removeFavorite = useFavoriteStore(state => state.removeFavorite); // Favori sidebar
-
-
   const products = useProductStore(state => state.products);
 
   return (
