@@ -74,9 +74,6 @@ Mock implementations are stored in src/tests/mocks/zustandMocks.js, allowing reu
 
 ```bash
 To Run Tests
-bash
-Kopyala
-Düzenle
 # Unit & Integration Tests
 npm test
 
