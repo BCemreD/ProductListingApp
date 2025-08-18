@@ -8,7 +8,7 @@ export const useProductsStore = create((set) => ({
   fetchProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await fetch('http://localhost:8080/api/products');
+      const res = await fetch('${apiUrl}/api/products');
       if (!res.ok) throw new Error('Failed to fetch products');
       const data = await res.json();
       set({ products: data, loading: false, error: null });

@@ -13,19 +13,19 @@ export const useFavoritesStore = create((set, get) => ({
 
     set({ loading: true, error: null });
     try {
-      const res = await fetch(`http://localhost:8080/api/favorites/${userId}`, {
+      const res = await fetch(`${apiUrl}/api/favorites/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.message || 'Favoriler getirilemedi');
+        throw new Error(errorData.message || 'Favorites not obtained');
       }
       const data = await res.json();
       set({ favorites: data, loading: false, error: null });
     } catch (err) {
-      console.error("Favoriler getirilirken hata:", err);
+      console.error("Favorites not obtained:", err);
       set({ error: err.message, loading: false, favorites: [] });
     }
   },
@@ -33,69 +33,69 @@ export const useFavoritesStore = create((set, get) => ({
   addFavorite: async (userId, product, token) => {
     const state = get();
     if (state.favorites.some(item => item.id === product.id)) {
-      console.log(`${product.name} zaten favorilerinizde.`);
+      console.log(`${product.name} already favorited.`);
       return;
     }
 
     try {
-      const res = await fetch(`http://localhost:8080/api/favorites/${userId}/${product.id}`, {
+      const res = await fetch(`${apiUrl}/api/favorites/${userId}/${product.id}`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
 
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.message || 'Favori eklenemedi');
+        throw new Error(errorData.message || 'Favori not added');
       }
 
       const newFav = await res.json();
       set(state => ({ favorites: [...state.favorites, newFav] }));
       set({ error: null });
     } catch (err) {
-      console.error("Favori eklenirken hata:", err);
+      console.error("Favori add error:", err);
       set({ error: err.message });
     }
   },
 
   removeFavorite: async (userId, productId, token) => {
-    // userId veya token eksikse veya productId sayı değilse işlemi durdur
+    
     if (!userId || !token) {
-      console.error("removeFavorite: userId veya token eksik.");
-      // throw new Error("Kullanıcı ID veya token eksik."); // Hata fırlatmak istersen
-      return; // İşlemi durdur
+      console.error("removeFavorite: userId or token missing.");
+      
+      return; 
     }
     if (typeof productId !== 'number') {
-      console.error("removeFavorite: productId'nin sayısal bir değer olması bekleniyor, ancak:", productId);
-      // throw new Error("Ürün ID'si geçersiz."); // Hata fırlatmak istersen
-      return; // İşlemi durdur
+      console.error("removeFavorite: productId should be numerical but:", productId);
+  
+      return; 
     }
 
     try {
-      // 'res' değişkenini burada tanımlayarak hatayı çözüyoruz
-      const res = await fetch(`http://localhost:8080/api/favorites/${userId}/${productId}`, {
+   
+      const res = await fetch(`${apiUrl}/api/favorites/${userId}/${productId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      // HTTP yanıtının başarılı olup olmadığını kontrol et
+  
       if (!res.ok) {
-        // Hatalı yanıt durumunda, backend'den gelen hata mesajını yakalamaya çalış
-        let errorMsg = 'Favori silinemedi.';
+        
+        let errorMsg = 'Favorite not removed.';
         try {
           const errorData = await res.json();
           errorMsg = errorData.message || errorMsg;
         } catch (jsonError) {
-          // JSON parse edilemezse, direkt HTTP durumunu kullan
-          errorMsg = `Favori silinemedi: HTTP ${res.status} ${res.statusText}`;
+        
+          errorMsg = `Favorite not removed: HTTP ${res.status} ${res.statusText}`;
         }
         throw new Error(errorMsg);
       }
 
-      // Silme işlemi başarılıysa favori listesini güncelle
+    
       set(state => ({ favorites: state.favorites.filter(item => item.id !== productId) }));
-      set({ error: null }); // Başarılıysa hatayı temizle
+      set({ error: null }); 
     } catch (err) {
-      console.error("Favori silinirken hata:", err);
+      console.error("Favorite remove error:", err);
       set({ error: err.message });
     }
   },
