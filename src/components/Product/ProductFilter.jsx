@@ -1,12 +1,14 @@
 import React from 'react';
 
 export default function ProductFilter({ searchTerm, setSearchTerm, category, setCategory }) {
- 
+
   const categories = [
+
     'Computers',
     'Accessories',
     'Cameras',
-   
+
+
   ];
 
   return (
@@ -16,6 +18,7 @@ export default function ProductFilter({ searchTerm, setSearchTerm, category, set
         <input
           type="text"
           placeholder="Search..."
+
           className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -29,7 +32,9 @@ export default function ProductFilter({ searchTerm, setSearchTerm, category, set
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
+
           <option value="">Categories</option>
+
           {categories.map((cat) => (
             <option key={cat} value={cat.toLowerCase()}>{cat}</option>
           ))}

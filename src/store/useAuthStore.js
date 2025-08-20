@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { mockUsersData } from './mocks/mockUsersData';
 
 export const useAuthStore = create((set) => ({
+
   user: null,
   token: null,
   loading: true,
@@ -47,9 +48,11 @@ export const useAuthStore = create((set) => ({
       }
     } catch (err) {
       console.error("Login error:", err);
+
       set({ error: err.message, loading: false, user: null, token: null });
     }
   },
+
 
   logout: async () => {
     set({ loading: true, error: null });
@@ -62,5 +65,6 @@ export const useAuthStore = create((set) => ({
       console.error("Logout error:", err);
       set({ error: err.message, loading: false });
     }
+
   },
 }));
